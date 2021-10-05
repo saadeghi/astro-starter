@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "astro": "^0.20.9",
+    "daisyui": "^1.14.2",
+    "esbuild": "^0.13.4",
+    "svelte": "^3.43.1",
+    "tailwindcss": "^2.2.16",
+    "theme-change": "^2.0.2"
+  }
+}

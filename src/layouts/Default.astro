@@ -1,0 +1,37 @@
+---
+import Head from '../components/Head.astro'
+const {title} = Astro.props;
+const {desc} = Astro.props;
+const {twitterUsername} = Astro.props;
+const {dafaultTheme} = Astro.props;
+
+import ThemeChange from '../components/ThemeChange.svelte'
+import Navbar from '../components/Navbar.svelte'
+import Footer from '../components/Footer.svelte'
+---
+<html lang="en" data-theme={dafaultTheme || 'dark'}>
+  <Head
+    title={title || ''}
+    desc={desc || ''}
+    twitterUsername={twitterUsername || ''}
+  >
+    <link rel="stylesheet" href={Astro.resolve("../global.css")} />
+    <link rel="icon" type="image/svg+xml" href={Astro.site +"favicon.svg"}>
+    <link rel="alternate icon" href={Astro.site +"favicon.ico"}>
+  </Head>
+  <body>
+    <div class="flex justify-center bg-base-300">
+      <div class="w-full max-w-6xl">
+        <Navbar title={title}>
+          <ThemeChange client:load/>
+        </Navbar>
+      </div>
+    </div>
+    <slot />
+    <div class="flex justify-center p-10 bg-neutral text-neutral-content">
+      <div class="w-full max-w-6xl">
+        <Footer/>
+      </div>
+    </div>
+  </body>
+</html>
